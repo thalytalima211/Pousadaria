@@ -1,1 +1,8 @@
-<% @reservation %>
+<%= @reservation.name %> 
+
+<dl>
+    <dt><%= Reservation.human_attribute_name(:start_date) %>: </dt>
+    <dd><%= @reservation.start_date %></dd>
+    <dt><%= Reservation.human_attribute_name(:end_date) %>: </dt>
+    <dd><%= @reservation.end_date %></dd>
+</dl>

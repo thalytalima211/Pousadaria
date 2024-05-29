@@ -9,6 +9,12 @@
   <p class="lead">CNPJ: <%= @inn.registration_number %></p>
   <p class="lead">Endereço: <%= @inn.full_address %></p>
   <%= link_to 'Editar Pousada', edit_inn_dashboard_inns_path, class: 'btn btn-primary' %>
+  <section id="reservation">
+    <h2>Reservas da minha pousada</h2>
+    <% @inn.reservations.each do |reservation| %>
+      <%= link_to reservation.name, inn_dashboard_reservation_path(reservation)%>
+    <% end %>
+  </section>
   <section id="rooms" class="mt-3">
     <h2>Quartos</h2>
     <div class="row my-3">
