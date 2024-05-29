@@ -4,6 +4,7 @@
   </ol>
 </nav>
 <% if inn_owner_signed_in? %>
+  <%= link_to 'Cadastrar nova reserva para grupos', new_inn_dashboard_inns_reservation_path %>
   <h1><%= @inn.name %></h1>
   <p class="lead">CNPJ: <%= @inn.registration_number %></p>
   <p class="lead">Endereço: <%= @inn.full_address %></p>
