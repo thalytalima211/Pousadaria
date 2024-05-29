@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_141603) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_185128) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -91,6 +91,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_141603) do
     t.index ["registration_number"], name: "index_inns_on_registration_number", unique: true
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "inn_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inn_id"], name: "index_reservations_on_inn_id"
+  end
+
   create_table "room_types", force: :cascade do |t|
     t.string "name"
     t.integer "size"
@@ -105,5 +115,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_141603) do
   add_foreign_key "addresses", "inns"
   add_foreign_key "inn_rooms", "inns"
   add_foreign_key "inns", "inn_owners"
+  add_foreign_key "reservations", "inns"
   add_foreign_key "room_types", "inns"
 end
